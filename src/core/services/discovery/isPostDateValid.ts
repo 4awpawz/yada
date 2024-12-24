@@ -2,18 +2,18 @@
  * isDateValid - Date validator.
  */
 
-const isYearValid = function(y: unknown): boolean {
+const isYearValid = function(y: unknown) {
     return typeof (y) === "number";
 };
 
-const isMonthValid = function(m: unknown): boolean {
+const isMonthValid = function(m: unknown) {
     if (typeof (m) !== "number") {
         return false;
     }
     return m >= 1 && m <= 12;
 };
 
-const isLeapYear = function(y: number): boolean {
+const isLeapYear = function(y: number) {
     // If year is not evenly divisible by 4 it isn"t a leap year
     if (y % 4) {
         return false;
@@ -28,7 +28,7 @@ const isLeapYear = function(y: number): boolean {
     return (y % 400 === 0);
 };
 
-const isDayValid = function(y: number, m: number, d: unknown): boolean {
+const isDayValid = function(y: number, m: number, d: unknown) {
     if (typeof d !== "number") return false;
     const daysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     // Validate numerics and min day range
@@ -43,6 +43,6 @@ const isDayValid = function(y: number, m: number, d: unknown): boolean {
     return false;
 };
 
-export const isPostDateValid = function(m: unknown, d: unknown, y: unknown): boolean {
+export const isPostDateValid = function(m: unknown, d: unknown, y: unknown) {
     return (isYearValid(y) && isMonthValid(m) && isDayValid(y as number, m as number, d));
 };

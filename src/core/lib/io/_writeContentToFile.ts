@@ -5,7 +5,7 @@
 import chalk from "chalk";
 import fs from "fs-extra";
 
-export const _writeContentToFile = async function(path: string, content: string): Promise<void> {
+export const _writeContentToFile = async function(path: string, content: string) {
     try {
         await fs.outputFile(path, content);
     } catch (error) {

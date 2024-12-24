@@ -7,7 +7,7 @@ import path from "path";
 import type { BuffersMap, Configuration, DataSource } from "../../../types/types.js";
 import { readCache } from "../../lib/cache.js";
 
-export const getDataSources = async function(dataSources: DataSource[], config: Configuration): Promise<BuffersMap> {
+export const getDataSources = async function(dataSources: DataSource[], config: Configuration) {
     const buffersMap: BuffersMap = Object.create(null);
     for (const dataSource of dataSources) {
         const _path = path.join(config.srcFolder, config.dataFolder, dataSource);

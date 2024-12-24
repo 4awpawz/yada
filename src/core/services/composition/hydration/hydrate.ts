@@ -10,7 +10,7 @@ import { clearCache } from "../../../lib/cache.js";
 import { getComponentProfiles } from "../getComponentProfiles.js";
 import { makeComponentsMap } from "../../../lib/makeComponentsMap.js";
 
-export const hydrate = async function(assets: Assets): Promise<Assets> {
+export const hydrate = async function(assets: Assets) {
     metrics.startTimer("hydration");
     if (process.env["OK_TO_CALL_COMPONENTS"] === "0") {
         metrics.stopTimer("hydration");

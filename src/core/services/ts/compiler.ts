@@ -7,7 +7,7 @@ import chalk from "chalk";
 import ts from "typescript";
 import { _forEach } from "../../lib/functional.js";
 
-export const compiler = function(paths: readonly string[], options: ts.CompilerOptions): number {
+export const compiler = function(paths: readonly string[], options: ts.CompilerOptions) {
     const program = ts.createProgram(paths, options);
     const emitResult = program.emit();
 

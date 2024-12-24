@@ -5,7 +5,7 @@
 import chalk from "chalk";
 import fs from "fs-extra";
 
-export const _copyFile = async function(path: string, dest: string): Promise<void> {
+export const _copyFile = async function(path: string, dest: string) {
     try {
         await fs.copy(path, dest);
     } catch (error) {

@@ -8,7 +8,7 @@ import { composeIncludes } from "./composeIncludes.js";
 import type { Asset } from "../../../../types/types.js";
 import chalk from "chalk";
 
-export const composeHTMLDocument = async function(asset: Asset, assets: Asset[]): Promise<Asset> {
+export const composeHTMLDocument = async function(asset: Asset, assets: Asset[]) {
     const associatedPage =
         _find(assets, _asset => _asset.assetType === "page" && _asset.filePath === asset.associatedPage) as Asset;
     if (typeof associatedPage === "undefined") {

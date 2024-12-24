@@ -13,7 +13,7 @@ import { clearCache } from "../../../lib/cache.js";
 import { getComponentProfiles } from "../getComponentProfiles.js";
 import { _filter } from "../../../lib/functional.js";
 
-export const collectionGerator = async function(assets: Assets): Promise<Assets> {
+export const collectionGerator = async function(assets: Assets) {
     metrics.startTimer("collections");
     if (process.env["OK_TO_CALL_COMPONENTS"] === "0") {
         metrics.stopTimer("collections");

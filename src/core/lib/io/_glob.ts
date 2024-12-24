@@ -5,7 +5,7 @@
 import chalk from "chalk";
 import { glob, GlobOptions } from "glob";
 
-export const _glob = async function(pattern: string, options: GlobOptions = {}): Promise<string[]> {
+export const _glob = async function(pattern: string, options: GlobOptions = {}) {
     const ignore = ["node_modules/**"];
     options.ignore && ignore.push(options.ignore as string);
     const _options = { ignore };

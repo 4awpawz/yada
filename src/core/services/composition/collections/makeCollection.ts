@@ -11,7 +11,7 @@ import { config } from "../../configuration/configuration.js";
 import { importModule } from "../../../lib/importModule.js";
 import { getDataSources } from "../getDataSources.js";
 
-export const makeCollection = async function(assets: Assets, asset: Asset, componentProfile: ComponentProfile, componentsMap: ComponentsMap): Promise<void> {
+export const makeCollection = async function(assets: Assets, asset: Asset, componentProfile: ComponentProfile, componentsMap: ComponentsMap) {
     const runtimeCWD = join(process.cwd(), config.libFolder);
     const cwd = process.cwd();
     const componentIdentifier: ComponentIdentifier = componentsMap[componentProfile.componentName] as ComponentIdentifier;

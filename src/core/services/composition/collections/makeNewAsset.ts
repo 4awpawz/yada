@@ -6,7 +6,7 @@ import type { Asset, CollectionPageProfile } from "../../../../types/types.js";
 import { join, parse } from "path";
 import { renderToString } from "preact-render-to-string";
 
-export const makeNewAsset = function(asset: Asset, collectionPageProfile: CollectionPageProfile, componentTag: string, componentName: string): Asset {
+export const makeNewAsset = function(asset: Asset, collectionPageProfile: CollectionPageProfile, componentTag: string, componentName: string) {
     const newAsset: Asset = JSON.parse(JSON.stringify(asset));
     delete newAsset.isCollection;
     newAsset["memberOf"] = componentName.split(".")[0] as string;

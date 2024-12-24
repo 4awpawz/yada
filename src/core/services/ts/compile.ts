@@ -46,7 +46,7 @@ const componentCompilerOptions: ts.CompilerOptions = {
 const metaTimeStampFilePath = join(process.cwd(), config.metaFolder, metaTimeStampFileName);
 const metaTimeStamp = _fileExists(metaTimeStampFilePath) ? await fileModifiedTime(metaTimeStampFilePath) : 0;
 
-export const compileBrowserScripts = async function(): Promise<boolean> {
+export const compileBrowserScripts = async function() {
     metrics.startTimer("browser scripts compilation");
     if (browserScriptsPaths.length === 0) {
         console.log(chalk.blue("no browser scripts found"));
@@ -82,7 +82,7 @@ export const compileBrowserScripts = async function(): Promise<boolean> {
     return true;
 };
 
-export const compileComponents = async function(): Promise<boolean> {
+export const compileComponents = async function() {
     metrics.startTimer("component compilation");
     if (componentPaths.length === 0) {
         console.log(chalk.blue("no components found"));

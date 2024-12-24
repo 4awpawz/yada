@@ -21,7 +21,7 @@ const noSuchTimer = (name: string) => {
     console.log(chalk.red(`no such timer named '${name}'`));
 };
 
-const stopTimer = (name: string): string | void => {
+const stopTimer = (name: string) => {
     const timer: Timer = timers.get(name);
     if (!timer) return noSuchTimer(name);
     const mills = process.hrtime(timer.started)[1] / 1000000;

@@ -5,7 +5,7 @@
 import { parse } from "path";
 import type { ComponentIdentifier, ComponentsMap } from "../../types/types.js";
 
-export const makeComponentsMap = function(componentPaths: readonly string[]): ComponentsMap {
+export const makeComponentsMap = function(componentPaths: readonly string[]) {
     const componentsMap: ComponentsMap = {};
     for (const itemPath of componentPaths) {
         const componentName = parse(itemPath).name;

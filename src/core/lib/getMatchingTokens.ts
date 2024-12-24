@@ -12,7 +12,7 @@ const tokenValidators: TokenValidators = {
     fourBraces: (match: RegExpMatchArray): boolean => match[1] === "{{{{" && match[3] === "}}}}",
 };
 
-export const getMatchingTokens = function(assetContent: string, tokenValidatorFnId: string): RegExpMatchArray[] {
+export const getMatchingTokens = function(assetContent: string, tokenValidatorFnId: string) {
     const regex = /(\{{1,})(.*?)(\}{1,})/g;
     const matches = assetContent.matchAll(regex);
     const _matches = _filter([...matches], tokenValidators[tokenValidatorFnId] as TokenValidator);

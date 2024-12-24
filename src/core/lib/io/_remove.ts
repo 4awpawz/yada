@@ -5,7 +5,7 @@
 import chalk from "chalk";
 import fs from "fs-extra";
 
-export const _remove = async function(path: string): Promise<void> {
+export const _remove = async function(path: string) {
     try {
         await fs.rm(path, { recursive: true, force: true });
     } catch (error) {

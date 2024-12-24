@@ -5,7 +5,7 @@
 import chalk from "chalk";
 import fs from "fs-extra";
 
-export const _writeJSONFile = async function(path: string, object: unknown, options = {}): Promise<void> {
+export const _writeJSONFile = async function(path: string, object: unknown, options = {}) {
     try {
         await fs.writeJson(path, object, options);
     } catch (error) {

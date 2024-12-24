@@ -5,7 +5,7 @@
 import chalk from "chalk";
 import fs from "fs-extra";
 
-export const _copyFolder = async function(sourceFolder: string, destinationFolder: string, options = { overwrite: true }): Promise<void> {
+export const _copyFolder = async function(sourceFolder: string, destinationFolder: string, options = { overwrite: true }) {
     try {
         await fs.copy(sourceFolder, destinationFolder, options);
     } catch (error) {

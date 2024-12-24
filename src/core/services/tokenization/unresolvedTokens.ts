@@ -35,13 +35,13 @@ const searchContent = function(content: string) {
     return matches;
 };
 
-const addUnresolvedTokens = function(tokens: string[], file: string): void {
+const addUnresolvedTokens = function(tokens: string[], file: string) {
     _forEach(tokens, function(token) {
         unresolvedTokens.push({ token, file });
     });
 };
 
-export const report = function(): void {
+export const report = function() {
     if (!unresolvedTokens.length) return;
     console.log(chalk.black.bgYellow("Warning! The following HTML documents contain unresolved tokens:"));
     _forEach(unresolvedTokens, function(unresolvedToken) {
@@ -49,7 +49,7 @@ export const report = function(): void {
     });
 };
 
-export const note = function(assetContent: string, file: string): void {
+export const note = function(assetContent: string, file: string) {
     const _assetContent = assetContent.slice(0);
     const matches = searchContent(_assetContent);
     if (matches === null) return;

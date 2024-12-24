@@ -4,7 +4,7 @@
 
 import { parse } from "path";
 
-export const getPostName = function(path: string): string {
+export const getPostName = function(path: string) {
     // Remove everything upto and including the post date to get the name.
     const articleName = parse(path.substring(31)).name;
     return articleName;

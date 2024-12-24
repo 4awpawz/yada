@@ -10,7 +10,7 @@
 import chalk from "chalk";
 import { readFile } from "fs/promises";
 
-export const _readJSONFile = async function(path: string): Promise<object> {
+export const _readJSONFile = async function(path: string) {
     try {
         const buf = await readFile(path, { encoding: "utf-8" });
         const obj = JSON.parse(buf) as object;

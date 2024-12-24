@@ -7,7 +7,7 @@ import buster from "@4awpawz/buster";
 import * as metrics from "../../lib/metrics.js";
 import { config } from "../../services/configuration/configuration.js";
 
-export const cacheBust = async function(): Promise<void> {
+export const cacheBust = async function() {
     metrics.startTimer("cache busting");
     const releaseFolder = "build";
     const baseURL = typeof config.userConfig.baseURL !== "undefined" && config.userConfig.baseURL || "";

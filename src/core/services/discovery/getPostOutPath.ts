@@ -7,12 +7,12 @@ import { join, parse } from "path";
 import { config } from "../configuration/configuration.js";
 import { isPostDateValid } from "./isPostDateValid.js";
 
-const outErrorMessage = function(path: string): void {
+const outErrorMessage = function(path: string) {
     console.log(chalk.red(`there was an error: File name for post ${path} must be of the form: "yyyy-mm-dd-filename.[html|md]"`));
     console.log(chalk.red(`and "yyyy-mm-dd" must resolve to a valid date`));
 };
 
-export const getPostOutPath = async function(path: string, postCategoriesPath: string | undefined): Promise<string | undefined> {
+export const getPostOutPath = async function(path: string, postCategoriesPath: string | undefined) {
     const pathParts = parse(path);
     const postDateFound = /(\d{4})-(\d{2})-(\d{2})/.test(pathParts.name);
     if (!postDateFound) {

@@ -7,7 +7,7 @@ import { config } from "../../services/configuration/configuration.js";
 import { metaTimeStampFileName } from "../../services/configuration/metaTimeStampFileName.js";
 import { _writeContentToFile } from "./../io/_writeContentToFile.js";
 
-export const _writeMetaTimeStamp = async function(): Promise<void> {
+export const _writeMetaTimeStamp = async function() {
     const metaFolderName = config.metaFolder;
     const path = join(process.cwd(), metaFolderName, metaTimeStampFileName);
     await _writeContentToFile(path, "meta_timestamp");

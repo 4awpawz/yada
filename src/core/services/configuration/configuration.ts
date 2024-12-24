@@ -8,7 +8,7 @@ import { _fileExists } from "../../lib/io/_fileExists.js";
 import { configFileName } from "./configFileName.js";
 import type { Configuration, UserConfig } from "../../../types/types.js";
 
-const getConfiguration = async function(): Promise<Configuration> {
+const getConfiguration = async function() {
     const defaultConfig: Configuration = {
         srcFolder: "src", // Folder that contains the project's source.
         postsFolder: "posts", // Folder that contains the project's posts.

@@ -11,7 +11,7 @@ import { importModule } from "../../../lib/importModule.js";
 import chalk from "chalk";
 import { renderToString } from "preact-render-to-string";
 
-export const hydrateContent = async function(content: string, componentProfiles: ComponentProfile[], componentsMap: ComponentsMap, asset: Asset, assets: Assets): Promise<string | void> {
+export const hydrateContent = async function(content: string, componentProfiles: ComponentProfile[], componentsMap: ComponentsMap, asset: Asset, assets: Assets) {
     const runtimeCWD = join(process.cwd(), config.libFolder);
     const cwd = process.cwd(); // Is restored below.
     for (const componentProfile of componentProfiles) {

@@ -2,9 +2,7 @@
  * getAssetType - Returns the type of the asset.
  */
 
-import type { AssetType } from "../../../types/types.js";
-
-export const getAssetType = function(pathToAsset: string): AssetType {
+export const getAssetType = function(pathToAsset: string) {
     if (pathToAsset.startsWith("src/templates")) return "template";
     if (pathToAsset.startsWith("src/includes")) return "include";
     if (pathToAsset.startsWith("src/pages")) return "page";

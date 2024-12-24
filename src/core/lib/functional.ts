@@ -3,7 +3,7 @@
  */
 
 // _filter(T[], ()) => T[]
-export function _filter<T>(array: T[], cb: (item: T) => boolean): T[] {
+export function _filter<T>(array: T[], cb: (item: T) => boolean) {
     return array.filter(cb);
 }
 
@@ -13,7 +13,7 @@ export function _forEach<T>(array: T[], cb: (item: T, index: number, array: T[])
 }
 
 // _find(T[], ()) => T | undefined
-export function _find<T>(array: T[], cb: (item: T, index: number, array: T[]) => boolean): T | undefined {
+export function _find<T>(array: T[], cb: (item: T, index: number, array: T[]) => boolean) {
     return array.find(cb);
 }
 

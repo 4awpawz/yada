@@ -2,10 +2,10 @@
  * getComponentProfiles - returns ComponentProfile[].
  */
 
-import type { ComponentProfile, ComponentProperty, DataSource } from "../../../types/types.js";
+import type { ComponentProfile, ComponentProperty } from "../../../types/types.js";
 import { _filter } from "../../lib/functional.js";
 
-const getDataSourcesFromTagProperties = function(properties: string[]): DataSource[] {
+const getDataSourcesFromTagProperties = function(properties: string[]) {
     const componentDataSourcesProperty = _filter(properties, property => property.startsWith("dataSources"))[0] as string; // dataSources="dataSource,..."
     if (typeof componentDataSourcesProperty === "undefined") return [];
     let dataSources = componentDataSourcesProperty.split("=").slice(1);
@@ -27,7 +27,7 @@ const getOtherPropertiesFromTagProperties = function(properties: string[]) {
     return props;
 };
 
-export const getComponentProfiles = function(assetContent: string): ComponentProfile[] {
+export const getComponentProfiles = function(assetContent: string) {
     const matches = [...assetContent.matchAll(/<([A-Z][a-zA-Z0-9]*)\s+[^>]*?(?<!<code>)\/?>/g)];
     if (matches.length === 0) return [];
     const componentProfiles: ComponentProfile[] = [];

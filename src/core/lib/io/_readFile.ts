@@ -5,7 +5,7 @@
 import chalk from "chalk";
 import fs from "fs/promises";
 
-export const _readFile = async function(path: string): Promise<string> {
+export const _readFile = async function(path: string) {
     try {
         return await fs.readFile(path, { encoding: "utf8" });
     } catch (error) {

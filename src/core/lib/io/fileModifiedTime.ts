@@ -5,7 +5,7 @@
 import chalk from "chalk";
 import fs from "fs-extra";
 
-export const fileModifiedTime = async function(path: string): Promise<number> {
+export const fileModifiedTime = async function(path: string) {
     try {
         const stats = await fs.promises.stat(path);
         return stats.mtimeMs;

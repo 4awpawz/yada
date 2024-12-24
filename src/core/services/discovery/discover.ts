@@ -25,7 +25,7 @@ import { _filter, _forEach } from "../../lib/functional.js";
 import { getPostName } from "./getPostName.js";
 import { includeIsConditional } from "./includeIsConditional.js";
 
-const processCSS = async function(asset: Asset): Promise<Asset> {
+const processCSS = async function(asset: Asset) {
     let buffer = await _readFile(asset.filePath);
     buffer = typeof buffer === "undefined" ? "" : buffer;
     asset.content = buffer;
@@ -33,20 +33,20 @@ const processCSS = async function(asset: Asset): Promise<Asset> {
     return asset;
 };
 
-const processInclude = async function(asset: Asset): Promise<Asset> {
+const processInclude = async function(asset: Asset) {
     let buffer = await _readFile(asset.filePath);
     buffer = typeof buffer === "undefined" ? "" : path.parse(asset.filePath).ext === ".md" ? await markdownToHTML(buffer) : buffer;
     asset.content = includeIsConditional(asset.filePath) ? "" : buffer;
     return asset;
 };
 
-const processPage = async function(asset: Asset): Promise<Asset> {
+const processPage = async function(asset: Asset) {
     const buffer = await _readFile(asset.filePath);
     asset.content = typeof buffer === "undefined" ? "" : buffer;
     return asset;
 };
 
-const processPost = async function(asset: Asset): Promise<Asset> {
+const processPost = async function(asset: Asset) {
     asset.isPost = true;
     asset.postTimeStamp = getPostTimeStampFromPostPath(asset.filePath);
     asset.postDate = new Date(asset.postTimeStamp as number).toLocaleDateString();
@@ -61,7 +61,7 @@ const processPost = async function(asset: Asset): Promise<Asset> {
     return asset;
 };
 
-const processPostLandingPage = function(asset: Asset): Asset {
+const processPostLandingPage = function(asset: Asset) {
     const oPath = config.userConfig.postsFolder;
     const oName = "index.html";
     asset.htmlDocumentName = path.join(oPath, oName);
@@ -71,7 +71,7 @@ const processPostLandingPage = function(asset: Asset): Asset {
 
 let has404 = false;
 
-const process404 = function(asset: Asset): Asset {
+const process404 = function(asset: Asset) {
     const oPath = normalizeOutPath(path.parse(asset.filePath).dir);
     const oName = "404.html";
     asset.htmlDocumentName = path.join(oPath, oName);
@@ -80,7 +80,7 @@ const process404 = function(asset: Asset): Asset {
     return asset;
 };
 
-const processTemplate = async function(asset: Asset): Promise<Asset> {
+const processTemplate = async function(asset: Asset) {
     const buffer = await _readFile(asset.filePath);
     try {
         // Using the default "---" excerpt separator can cause issues when
@@ -105,7 +105,7 @@ const processTemplate = async function(asset: Asset): Promise<Asset> {
     return asset;
 };
 
-const reportWIPS = function(assets: Assets): void {
+const reportWIPS = function(assets: Assets) {
     if (process.env["BUILD_STRATEGY"] !== "RELEASE") return;
     const wips = _filter(assets, asset => typeof asset["isWip"] !== "undefined" && asset["isWip"] === true);
     if (!wips.length) return;
@@ -115,7 +115,7 @@ const reportWIPS = function(assets: Assets): void {
     });
 };
 
-export const discover = async function(): Promise<Assets> {
+export const discover = async function() {
     metrics.startTimer("discovery");
     const pathsToAssets = await getFiles();
     let assets = await Promise.all(pathsToAssets.map(async(assetPath: string) => {

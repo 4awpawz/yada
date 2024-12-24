@@ -9,7 +9,7 @@ import { _filter } from "../../lib/functional.js";
 import type { Assets } from "../../../types/types.js";
 import js_beautify from "js-beautify";
 
-export const serializeHTMLDocuments = async function(assets: Assets, buildFolderPath: string): Promise<number> {
+export const serializeHTMLDocuments = async function(assets: Assets, buildFolderPath: string) {
     const templateAssets = _filter(assets, asset => asset.assetType === "template" && !asset.isCollection);
     let count = 0;
     for (const asset of templateAssets) {
@@ -22,7 +22,7 @@ export const serializeHTMLDocuments = async function(assets: Assets, buildFolder
     return count;
 };
 
-export const serializeCSSDocuments = async function(assets: Assets, buildFolderPath: string): Promise<void> {
+export const serializeCSSDocuments = async function(assets: Assets, buildFolderPath: string) {
     const cssAssets = _filter(assets, asset => asset.assetType === "css");
     for (const asset of cssAssets) {
         if (typeof asset.content === "undefined") continue;

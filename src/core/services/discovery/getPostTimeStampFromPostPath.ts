@@ -2,7 +2,7 @@
  * getPostTimeStamp - Returns the date of a post, taken from its file path, as a timestamp, i.e. in milliseconds.
  */
 
-export const getPostTimeStampFromPostPath = function(path: string): number {
+export const getPostTimeStampFromPostPath = function(path: string) {
     const regex = /(\d{4})-(\d{2})-(\d{2})/;
     const result = path.match(regex);
     if (result === null) return 0;

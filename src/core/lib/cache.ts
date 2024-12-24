@@ -12,7 +12,7 @@ import { _readJSONFile } from "./io/_readJsonFile.js";
 
 const rCache = new Map();
 
-const cacheJSONFile = async function(path: string): Promise<Map<unknown, unknown>> {
+const cacheJSONFile = async function(path: string) {
     return rCache.set(path, await _readJSONFile(path));
 };
 
@@ -24,7 +24,7 @@ export const deleteCachedFile = function(path: string): void {
     rCache.delete(path);
 };
 
-export const readCache = async function(path: string): Promise<string | object> {
+export const readCache = async function(path: string) {
     const fileExists = _fileExists(path);
     fileExists && !rCache.has(path) && (parse(path).ext === ".json" && await cacheJSONFile(path) || await cacheFile(path));
     if (fileExists) return rCache.get(path);

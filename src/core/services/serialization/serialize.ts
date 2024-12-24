@@ -10,14 +10,14 @@ import chalk from "chalk";
 import { config } from "../configuration/configuration.js";
 import { join } from "path";
 
-const getBuildFolderPath = function(): string {
+const getBuildFolderPath = function() {
     const baseURL = config.userConfig.baseURL;
     let buildFolderPath = join(process.cwd(), config.buildFolder);
     buildFolderPath = process.env["BUILD_STRATEGY"] === "RELEASE" ? join(buildFolderPath, baseURL) : buildFolderPath;
     return buildFolderPath;
 };
 
-export const serialize = async function(assets: Assets): Promise<Assets> {
+export const serialize = async function(assets: Assets) {
     metrics.startTimer("serialization");
     const buildFolderPath = getBuildFolderPath();
     const pageCount = await serializeHTMLDocuments(assets, buildFolderPath);

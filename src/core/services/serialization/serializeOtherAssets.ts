@@ -11,14 +11,14 @@ import { _fileExists } from "../../lib/io/_fileExists.js";
 import { _glob } from "../../lib/io/_glob.js";
 import { _copyFile } from "../../lib/io/_copyFile.js";
 
-const serializeAssetsJSON = async function(assets: Assets): Promise<void> {
+const serializeAssetsJSON = async function(assets: Assets) {
     const outputPath = path.join(process.cwd(), ".assets.json");
     await _writeJSONFile(outputPath, assets, { spaces: 2 }); return;
 };
 
 // The src/css/libs folder is reserved for 3rd party libraries.
 // Project specific css files are treaded as true assets and are not coppied here.
-const serializeCSSLibsFolder = async function(config: Configuration, buildFolderPath: string): Promise<void> {
+const serializeCSSLibsFolder = async function(config: Configuration, buildFolderPath: string) {
     const sourceFolder = path.join(process.cwd(), config.srcFolder, config.cssFolder, config.cssLibsFolder);
     if (!_fileExists(sourceFolder)) return;
     const destinationFolder = path.join(buildFolderPath, config.cssFolder, config.cssLibsFolder);
@@ -26,7 +26,7 @@ const serializeCSSLibsFolder = async function(config: Configuration, buildFolder
     return;
 };
 
-const serializeScriptsFolder = async function(config: Configuration, buildFolderPath: string): Promise<void> {
+const serializeScriptsFolder = async function(config: Configuration, buildFolderPath: string) {
     // Note: we can't just copy the src/scripts folder in whole because it might contain
     // .ts files (see compilation) which would pollute the build/scripts folder.
     const sourceFolder = path.join(process.cwd(), config.srcFolder, config.scriptsFolder);
@@ -40,7 +40,7 @@ const serializeScriptsFolder = async function(config: Configuration, buildFolder
     return;
 };
 
-const serializeMediaFolder = async function(config: Configuration, buildFolderPath: string): Promise<void> {
+const serializeMediaFolder = async function(config: Configuration, buildFolderPath: string) {
     const sourceFolder = path.join(process.cwd(), config.srcFolder, config.mediaFolder);
     if (!_fileExists(sourceFolder)) return;
     const destinationFolder = path.join(buildFolderPath, config.mediaFolder);
@@ -48,7 +48,7 @@ const serializeMediaFolder = async function(config: Configuration, buildFolderPa
     return;
 };
 
-const serializeEtcFolder = async function(config: Configuration, buildFolderPath: string): Promise<void> {
+const serializeEtcFolder = async function(config: Configuration, buildFolderPath: string) {
     const sourceFolder = path.join(process.cwd(), config.srcFolder, config.etcFolder);
     if (!_fileExists(sourceFolder)) return;
     const destinationFolder = path.join(buildFolderPath);
@@ -56,7 +56,7 @@ const serializeEtcFolder = async function(config: Configuration, buildFolderPath
     return;
 };
 
-export const serializeOtherAssets = async function(assets: Assets, buildFolderPath: string): Promise<void> {
+export const serializeOtherAssets = async function(assets: Assets, buildFolderPath: string) {
     await serializeAssetsJSON(assets);
     await serializeCSSLibsFolder(config, buildFolderPath);
     await serializeScriptsFolder(config, buildFolderPath);

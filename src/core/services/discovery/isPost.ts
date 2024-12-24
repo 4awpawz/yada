@@ -5,7 +5,7 @@
 import { parse } from "path";
 import { config } from "../configuration/configuration.js";
 
-export const isPost = function(assetPath: string): boolean {
+export const isPost = function(assetPath: string) {
     const assetPathParts = parse(assetPath);
     // Posts will never be named 'index'.
     return assetPathParts.dir.includes(config.postsFolder) && assetPathParts.name !== "index";

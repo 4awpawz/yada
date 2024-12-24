@@ -10,12 +10,12 @@ import type { Asset, Assets, IncludeMatchesResults } from "../../../../types/typ
 // import chalk from "chalk";
 import { getMatchingTokens } from "../../../lib/getMatchingTokens.js";
 
-const getListOfIncludesFromAsset = function(assetContent: string): IncludeMatchesResults {
+const getListOfIncludesFromAsset = function(assetContent: string) {
     const matches = getMatchingTokens(assetContent, "twoBraces");
     return matches.map(match => ({ matched: match[0] as string, fileName: match[2] as string })) as IncludeMatchesResults;
 };
 
-export const composeIncludes = async function(asset: Asset, assets: Assets): Promise<Asset> {
+export const composeIncludes = async function(asset: Asset, assets: Assets) {
     if (typeof asset.content === "undefined") return asset;
     const srcFolder = config.srcFolder;
     const matcherResults = getListOfIncludesFromAsset(asset.content);

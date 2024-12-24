@@ -5,7 +5,7 @@
 import chalk from "chalk";
 import fs from "fs-extra";
 
-export const _fileExists = function(path: string): boolean {
+export const _fileExists = function(path: string) {
     try {
         return fs.existsSync(path);
     } catch (error) {

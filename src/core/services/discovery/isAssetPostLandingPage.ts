@@ -6,7 +6,7 @@
 import { parse } from "path";
 import { config } from "../configuration/configuration.js";
 
-export const isAssetPostLandingPage = function(assetPath: string): boolean {
+export const isAssetPostLandingPage = function(assetPath: string) {
     const assetPathParts = parse(assetPath);
     if (assetPathParts.name !== "index") return false;
     return assetPathParts.dir.includes(config.postsFolder);

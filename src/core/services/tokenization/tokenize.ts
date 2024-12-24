@@ -10,7 +10,7 @@ import * as unresolvedTokens from "./unresolvedTokens.js";
 import * as metrics from "../../lib/metrics.js";
 import { _filter } from "../../lib/functional.js";
 
-export const tokenize = function(assets: Assets): Assets {
+export const tokenize = function(assets: Assets) {
     metrics.startTimer("tokenize");
     const globalTokens = config.userConfig.tokens;
     const baseURL = process.env["BUILD_STRATEGY"] === "DEVELOPMENT" ? "" : config.userConfig.baseURL;

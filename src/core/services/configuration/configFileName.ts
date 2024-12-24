@@ -1,5 +1,5 @@
 /**
- * configFileName - the names of user config file.
+ * configFileName - the name of the user config file.
  */
 
 export const configFileName = "fusion.json";
